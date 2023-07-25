@@ -4,6 +4,7 @@ import { useTheme } from "react-native-paper";
 import Albums from "../components/Albums";
 import Header from "../components/Header";
 import SubHeader from "../components/SubHeader";
+import Mixes from "../components/Mixes";
 
 export default function HomeScreen() {
   const theme = useTheme();
@@ -19,7 +20,7 @@ export default function HomeScreen() {
       <SubHeader />
       <ScrollView>
         <Albums />
-        <Albums />
+        <Mixes />
       </ScrollView>
       {/* </ScrollView> */}
     </SafeAreaView>

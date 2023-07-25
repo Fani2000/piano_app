@@ -2,9 +2,9 @@ import { Platform, StyleSheet, View, StatusBar } from "react-native";
 import { NavigationContainer, ThemeProvider } from "@react-navigation/native";
 import React from "react";
 import { routes as Routes } from "./router/index";
-import BottomNavigation from "./components/BottomNavigation";
 import { theme } from "./theme/theme";
 import { Provider as PaperProvider } from "react-native-paper";
+import { BottomNavigation } from "./router/bottomNavigation";
 
 const App = (props) => {
   const isAndroid = Platform.OS === "android";
@@ -15,9 +15,8 @@ const App = (props) => {
         <View style={{ marginTop: StatusBar.currentHeight }}></View>
       )}
       <NavigationContainer>
-        <Routes />
+        <BottomNavigation />
       </NavigationContainer>
-      <BottomNavigation />
     </PaperProvider>
   );
 };

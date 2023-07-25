@@ -2,6 +2,7 @@ import { Image, View, Text, StyleSheet, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Dezzer } from "../services/Dezzer";
 import { Card } from "react-native-paper";
+import { useTruncate } from "../hooks/useTruncate";
 
 const Albums = () => {
   const [albums, setAlbums] = useState([]);
@@ -36,15 +37,17 @@ const Albums = () => {
             albums.map(
               (album, i) =>
                 album.cover_big && (
-                  <Card key={i}>
+                  <Card style={styles.card} key={i}>
                     <Card.Cover
+                      style={styles.image}
                       source={{ uri: album.cover_big }}
-                      style={styles.card}
                       resizeMethod="resize"
                       resizeMode="cover"
                     />
                     <Card.Content>
-                      <Text style={{ color: "white" }}>{album.title}</Text>
+                      <Text style={{ color: "white" }}>
+                        {useTruncate(album.title)}
+                      </Text>
                     </Card.Content>
                   </Card>
                 )
@@ -65,10 +68,14 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
   },
   scrollbar: {
-    height: "40%",
+    height: "30%",
+  },
+  image: {
+    height: 100,
   },
   card: {
-    width: 180,
-    height: 180,
+    width: 140,
+    maxWidth: 140,
+    height: 140,
   },
 });

@@ -9,7 +9,8 @@ const Search = () => {
       style={{
         backgroundColor: theme.colors.grey,
         borderRadius: 30,
-        padding: 15,
+        paddingVertical: 15,
+        paddingHorizontal: 15,
         color: "white",
       }}
     >
